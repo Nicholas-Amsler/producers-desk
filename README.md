@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# 🎬 Mademoiselle's Assistant — Producer's Desk
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A beautiful, AI-powered productivity assistant built with ❤️ for my wife, a brilliant executive producer. Designed to streamline her workflow, fetch insights, summarize docs & YouTube videos (coming soon!), and keep her one step ahead.
 
-## Available Scripts
+![React](https://img.shields.io/badge/Built%20With-React-blue?style=flat\&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Styled%20With-TailwindCSS-06B6D4?style=flat\&logo=tailwindcss)
+![n8n](https://img.shields.io/badge/Automation-n8n-orange?style=flat\&logo=n8n)
+![License](https://img.shields.io/github/license/Nicholas-Amsler/producers-desk?style=flat)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* 🎤 **Voice Input**: Speak your commands naturally
+* 🤖 **ChatGPT Integration**: Smart assistant logic powered via n8n + OpenAI
+* 💡 **Auto-Greeting**: Contextual, time-based welcome message
+* 🧠 **Memory Enabled**: Session-based recall of previous inputs
+* 📰 **News Ticker**: Dynamic scroll of current entertainment headlines
+* 📄 **Document Summarization** *(coming soon)*
+* 📺 **YouTube Link Summarization** *(coming soon)*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Frontend**: React + Tailwind CSS
+* **AI**: OpenAI API (via custom Flowise/N8n endpoint)
+* **Automation**: n8n self-hosted on secure VPS
+* **Deployment**: Vercel (recommended for production hosting)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📦 Local Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# 1. Clone the repo
+$ git clone https://github.com/Nicholas-Amsler/producers-desk.git
+$ cd producers-desk
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 2. Install dependencies
+$ npm install
 
-### `npm run eject`
+# 3. Create a `.env` file
+REACT_APP_OPENAI_API_KEY=your-openai-key
+REACT_APP_NEWSAPI_KEY=your-newsapi-key
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# 4. Run the app
+$ npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🌍 Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This app is optimized for deployment on:
 
-## Learn More
+* **[Vercel](https://vercel.com)**
+* **[Netlify](https://netlify.com)**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To build:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+To deploy manually:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install -g serve
+serve -s build
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📸 Screenshots
 
-### Making a Progressive Web App
+> 📷 Add some high-quality screenshots or even a screen-recording gif here to show the UI in action.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## ❤️ Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Built by **[Nicholas Amsler](https://github.com/Nicholas-Amsler)** under Amsler Labs as a personal gift and professional flex.
 
-### Deployment
+> "Built with love for my wife — to make her day smoother, smarter, and a little more magical."
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 📬 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you're looking for a React + AI automation wizard:
+
+📧 **[amsleranalytics@gmail.com](mailto:amsleranalytics@gmail.com)**
+🔗 [Amsler Labs](https://amslerlabs.com) *(coming soon)*
+💼 Available for freelance AI workflow automation + product builds
+
+---
+
+## 📃 License
+
+MIT — Use it, fork it, make something amazing.
