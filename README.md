@@ -97,6 +97,7 @@ If you're looking for a React + AI automation wizard:
 ---
 
 ## 📃 License
+![License](https://img.shields.io/badge/license-Proprietary-blue?style=flat)
 
 This project is released under a **custom proprietary license**.  
 Please see [LICENSE](./LICENSE) for terms of use, distribution, and commercial restrictions.
