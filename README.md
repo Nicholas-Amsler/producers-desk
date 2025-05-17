@@ -98,4 +98,8 @@ If you're looking for a React + AI automation wizard:
 
 ## 📃 License
 
-MIT — Use it, fork it, make something amazing.
+This project is released under a **custom proprietary license**.  
+Please see [LICENSE](./LICENSE) for terms of use, distribution, and commercial restrictions.
+
+> Contact **amsleranalytics@gmail.com** for licensing inquiries, collaborations, or commercial rights.
+
