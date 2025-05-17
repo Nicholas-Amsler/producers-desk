@@ -24,35 +24,36 @@ export default function FloatingChat({
   const [rel, setRel] = useState({ x: 0, y: 0 });
   const [greeted, setGreeted] = useState(false);
 
-  const getTimeBasedGreeting = async () => {
-    const hour = new Date().getHours();
-    try {
-      const res = await fetch('https://n8n.amslerlabs.com/webhook/personality');
-      const data = await res.json();
-      return data.message || 'Hello, Mademoiselle.';
-    } catch (err) {
-      if (hour >= 17 && hour < 19) {
-        return "Ugh, working late again? Alright, but I'm logging this overtime...";
-      } else if (hour < 12) {
-        return 'Good morning, Mademoiselle. Your creative dominion awaits.';
-      } else if (hour < 17) {
-        return 'Good afternoon, Mademoiselle. The empire stands ready.';
-      } else {
-        return 'Good evening, Mademoiselle. Shall we conquer the night together?';
-      }
-    }
-  };
+const getTimeBasedGreeting = async () => {
+  try {
+    const res = await fetch("https://n8n.amslerlabs.com/webhook/53cc4027-8e82-46ed-b855-880cd4c15b33/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        question: "Give me a time-based greeting for Mademoiselle."
+      })
+    });
+    const data = await res.json();
+    return data.text || data.reply || data.answer || 'Hello, Mademoiselle.';
+  } catch (err) {
+    console.error("Greeting fetch failed:", err);
+    return 'Hello, Mademoiselle.';
+  }
+};
 
-  useEffect(() => {
-    if (chatOpen && !greeted) {
-      getTimeBasedGreeting().then(message => {
-        const greeting = { role: 'assistant', content: message };
-        handleAskChatGPT(greeting);
-        setGreeted(true);
-      });
-    }
-    if (!chatOpen) setGreeted(false);
-  }, [chatOpen]);
+ useEffect(() => {
+  if (chatOpen && !greeted) {
+    (async () => {
+      const message = await getTimeBasedGreeting();
+      setChatHistory(prev => [...prev, { role: 'assistant', content: message }]);
+      setGreeted(true);
+    })();
+  }
+
+  if (!chatOpen) setGreeted(false);
+}, [chatOpen]);
 
   useEffect(() => {
     const sequence = [
