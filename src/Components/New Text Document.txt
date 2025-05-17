@@ -1,0 +1,49 @@
+/* src/Components/NewsTicker.css */
+
+.news-ticker {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  /* Slow the scroll to 120 seconds for a readable speed */
+  animation: scroll-left 120s linear infinite;
+}
+
+/* Pause animation when you hover over the ticker */
+.news-ticker:hover .ticker-content {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-block;
+  margin: 0 1.5rem;
+}
+
+.ticker-item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.ticker-item a:hover {
+  text-decoration: underline;
+}
+
+.ticker-separator {
+  margin-left: 1rem;
+  color: #888;
+}
+
+/* Keyframes for a continuous leftward scroll */
+@keyframes scroll-left {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}

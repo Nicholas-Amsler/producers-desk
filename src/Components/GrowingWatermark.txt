@@ -1,0 +1,57 @@
+import { useEffect, useState } from "react";
+
+const GrowingWatermark = () => {
+  const [scale, setScale] = useState(0.5);
+  const [hasPlayedSound, setHasPlayedSound] = useState(false);
+
+  useEffect(() => {
+    const updateScale = () => {
+      const now = new Date();
+      const start = new Date();
+      const end = new Date();
+
+      start.setHours(8, 0, 0, 0);  // Growth start
+      end.setHours(17, 0, 0, 0);   // Growth end / sound time
+
+      const total = end.getTime() - start.getTime();
+      const elapsed = now.getTime() - start.getTime();
+      const ratio = Math.min(Math.max(elapsed / total, 0), 1);
+
+      const minScale = 0.5;
+      const maxScale = 1.2;
+      const newScale = minScale + ratio * (maxScale - minScale);
+
+      setScale(newScale);
+
+      // If it's exactly 5 PM and sound hasn't played yet
+      if (
+        now.getHours() === 17 &&
+        now.getMinutes() === 0 &&
+        !hasPlayedSound
+      ) {
+        const chime = new Audio("/sounds/producer-chime.mp3");
+        chime.play();
+        setHasPlayedSound(true);
+      }
+    };
+
+    updateScale();
+    const interval = setInterval(updateScale, 60000); // check every minute
+
+    return () => clearInterval(interval);
+  }, [hasPlayedSound]);
+
+  return (
+    <img
+      src="/images/producer-perch-main.png"
+      alt="Producer Perch Watermark"
+      style={{
+        transform: `scale(${scale})`,
+        transformOrigin: "bottom left",
+      }}
+      className="fixed bottom-4 left-4 w-32 opacity-20 pointer-events-none select-none transition-transform duration-1000 ease-in-out"
+    />
+  );
+};
+
+export default GrowingWatermark;
